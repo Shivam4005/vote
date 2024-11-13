@@ -1,3 +1,5 @@
+# Online Voting System
+
 An **online voting system** is a platform that allows individuals to cast their votes via the internet, typically in the context of elections, polls, or surveys. This system is designed to facilitate the voting process by providing a secure, convenient, and efficient alternative to traditional paper-based or in-person voting methods. It is commonly used for both governmental elections and other decision-making processes like corporate board votes, university elections, or public surveys.
 
 ### Key Features of an Online Voting System:
