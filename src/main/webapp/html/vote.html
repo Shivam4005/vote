@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Online Voting System</h1>
+        <h3>Select your candidate:</h3>
+        
+        <div class="options">
+            <label>
+                <input type="radio" name="candidate" value="Candidate A">
+                Candidate A
+            </label>
+            <label>
+                <input type="radio" name="candidate" value="Candidate B">
+                Candidate B
+            </label>
+            <label>
+                <input type="radio" name="candidate" value="Candidate C">
+                Candidate C
+            </label>
+            <label>
+                <input type="radio" name="candidate" value="Candidate D">
+                Candidate D
+            </label>
+        </div>
+
+        <button id="voteButton">Vote</button>
+
+        <div id="resultSection" style="display: none;">
+            <h3>Vote Results:</h3>
+            <ul>
+                <li>Candidate A: <span id="votesA">0</span> votes</li>
+                <li>Candidate B: <span id="votesB">0</span> votes</li>
+                <li>Candidate C: <span id="votesC">0</span> votes</li>
+                <li>Candidate D: <span id="votesD">0</span> votes</li>
+            </ul>
+            <button id="resetButton">Reset Vote</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
