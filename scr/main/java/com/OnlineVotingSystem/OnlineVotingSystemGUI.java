@@ -57,3 +57,71 @@ public class OnlineVotingSystemGUI {
         resultArea.setBounds(20, 140, 350, 200);
         resultArea.setEditable(false);
         frame.add(resultArea);
+
+        // Add action listeners
+        addCandidateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String candidateName = candidateField.getText().trim();
+                if (!candidateName.isEmpty()) {
+                    addCandidate(candidateName);
+                    candidateField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Candidate name cannot be empty.");
+                }
+            }
+        });
+
+        voteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String voteFor = voteField.getText().trim();
+                if (!voteFor.isEmpty()) {
+                    castVote(voteFor);
+                    voteField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Vote field cannot be empty.");
+                }
+            }
+        });
+
+        resultsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayResults();
+            }
+        });
+
+        frame.setVisible(true);
+    }
+
+    private void addCandidate(String candidateName) {
+        if (!candidates.containsKey(candidateName)) {
+            candidates.put(candidateName, 0);
+            JOptionPane.showMessageDialog(frame, "Candidate " + candidateName + " added successfully.");
+        } else {
+            JOptionPane.showMessageDialog(frame, "Candidate " + candidateName + " already exists.");
+        }
+    }
+
+    private void castVote(String candidateName) {
+        if (candidates.containsKey(candidateName)) {
+            candidates.put(candidateName, candidates.get(candidateName) + 1);
+            JOptionPane.showMessageDialog(frame, "Vote casted successfully for " + candidateName);
+        } else {
+            JOptionPane.showMessageDialog(frame, "Candidate " + candidateName + " not found.");
+        }
+    }
+
+    private void displayResults() {
+        StringBuilder results = new StringBuilder("Voting Results:\n");
+        for (String candidate : candidates.keySet()) {
+            results.append(candidate).append(": ").append(candidates.get(candidate)).append(" votes\n");
+        }
+        resultArea.setText(results.toString());
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new OnlineVotingSystemGUI());
+    }
+}
